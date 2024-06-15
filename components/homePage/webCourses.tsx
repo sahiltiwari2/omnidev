@@ -6,7 +6,7 @@ import { Button } from '@nextui-org/button'
 const webCourses = () => {
     return (
         <div className=' flex justify-center'>
-            <div className='mt-32 max-h-42  flex justify-center border-2 rounded-lg shadow-lg p-9 max-w-6xl bg-gray-50 hover:border-blue-600 transition animate-slide-in-from-left hover:shadow-gray-400'>
+            <div className='mt-32 max-h-42  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-blue-600 transition animate-slide-in-from-left hover:shadow-blue-600 dark:hover:shadow-blue-600'>
                 <div className='mr-5'>
                     <Image src={WebImage} alt="web" height={200} width={200} />
                 </div>

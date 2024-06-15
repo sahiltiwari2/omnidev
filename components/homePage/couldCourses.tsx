@@ -6,7 +6,7 @@ import { Button } from '@nextui-org/button'
 const webCourses = () => {
     return (
         <div className=' flex justify-center'>
-            <div className='mt-10  flex justify-center border-2 rounded-lg shadow-lg p-9 max-w-6xl bg-gray-50 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-gray-400'>
+            <div className='mt-10  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-purple-600 dark:hover:shadow-purple-600'>
                 <div className='mr-5 max-h-36'>
                     <Image src={CloudImage} alt="web" height={150} width={200} className='object-contain h-40' />
                 </div>
