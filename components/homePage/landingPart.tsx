@@ -1,6 +1,7 @@
 import React from 'react'
 import LearningHome from '@/public/learn.svg'
 import Image from 'next/image'
+import { Orbitronn } from '@/config/fonts'
 
 
 const page = () => {
@@ -13,8 +14,10 @@ const page = () => {
           <div className=' animate-appearence-in-view transition-all duration-300'>
             <Image src={LearningHome} alt='learn' height={1000} width={500} />
           </div>
-          <div className='text-7xl text-[#d7f9f8] font-extrabold absolute top-5 right-80 animate-appearence-in-view transition-all duration-300'>
+          <div className='text-7xl text-[#b1dedd] font-extrabold absolute top-5 right-80 animate-appearence-in-view transition-all duration-300'>
+            <div className={ Orbitronn.className }>
             OmniDev
+            </div>
           </div>
           <div className='text-16 text-white absolute top-24 right-80'>
             Curative course kit

@@ -1,4 +1,4 @@
-import { Fira_Code as FontMono, Inter as FontSans, Roboto_Condensed as FontCondensed } from "next/font/google";
+import { Fira_Code as FontMono, Orbitron, Inter as FontSans } from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -10,7 +10,11 @@ export const fontMono = FontMono({
   variable: "--font-mono",
 });
 
-export const fontCondensed = FontCondensed({
-  subsets: ["latin"],
-  variable: "--font-condensed",
+
+const Orbitronn = Orbitron({
+  subsets: ['latin'], // Adjust for supported languages if needed
+  display: 'swap', // Ensures smooth font loading
+  // variable: {}, // Optional: Configure variable fonts if applicable
 });
+
+export {Orbitronn};
