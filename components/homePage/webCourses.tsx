@@ -2,11 +2,12 @@ import React from 'react'
 import WebImage from '@/public/webdev.svg'
 import Image from 'next/image'
 import { Button } from '@nextui-org/button'
+import Link from 'next/link'
 
 const webCourses = () => {
     return (
-        <div className=' flex justify-center'>
-            <div className='mt-10 max-h-42  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-blue-600 transition animate-slide-in-from-left hover:shadow-blue-600 dark:hover:shadow-blue-600'>
+        <div className=' flex justify-center hover:scale-110 transition duration-300'>
+            <div className='mt-10 max-h-42  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-blue-600 transition hover:scale-110 animate-slide-in-from-left hover:shadow-blue-600 dark:hover:shadow-blue-600'>
                 <div className='mr-5'>
                     <Image src={WebImage} alt="web" height={200} width={200} />
                 </div>
@@ -18,7 +19,7 @@ const webCourses = () => {
                         Web Dev a process in which one creates and maintain websites, Now days is argubaly<br /> the must important skill to  have as a developer. So Lets start Learning today.
                     </div>
                     <div className='mt-9 ml-5'>
-                    <Button color="primary" variant="ghost">
+                    <Button color="primary" variant="ghost" as={Link} href='/web'>
                         Explore More
                     </Button>
                     </div>
