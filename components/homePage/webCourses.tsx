@@ -12,7 +12,7 @@ const webCourses = () => {
                     <Image src={WebImage} alt="web" height={200} width={200} />
                 </div>
                 <div>
-                    <div className='ml-5 text-2xl font-bold '>
+                    <div className='ml-5 dark:text-blue-500 text-2xl font-bold '>
                         Web Development
                     </div>
                     <div className='ml-5 mt-2'>

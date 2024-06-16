@@ -1,7 +1,7 @@
 import React from 'react'
 import Web from '@/public/webdev.svg'
 import Image from 'next/image'
-import WebCard from "@/components/webDetail/webCard"
+import WebCard from "@/components/appdetail/appCard"
 
 const page = () => {
   return (
@@ -9,14 +9,14 @@ const page = () => {
       <div className='animate-slide-in-from-left '>
       <WebCard />
       </div>
-      <div className='w-2/4 text-4xl text-blue-600 text-left ml-16 font-bold mt-20'>
+      <div className='w-2/4 text-4xl text-green-500 text-left ml-16 font-bold mt-20'>
       <div className='animate-appearence-in-view'>Full Stack Web Development</div>
         
         <div className='flex items-start'>
           <div className=' animate-appearence-in-view w-2/4 text-4xl text-black dark:text-white text-left font-bold'>
             Bootcamp
           </div>
-          <div className='animate-slide-in-from-right text-[13px] text-blue-400'>
+          <div className='animate-slide-in-from-right text-[13px] text-green-400'>
             20 days | All Levels | For Beginners
           </div>
         </div>
@@ -27,11 +27,11 @@ const page = () => {
           ✔️ Live Project <br/>
           ✔️ Q & A sessions
         </div>
-        <div className='animate-slide-in-from-right text-[17px] text-black dark:text-white mt-5'>
+        <div className='animate-slide-in-from-right text-[17px] text-black mt-5  dark:text-white'>
           This course allows one to start from the biginning and advance over a period of time in concepts of React JS, Tailwind CSS and Backend
           services like hosting and data management. Allowing one to become capable to grab internships for further development.
         </div>
-        <div className='animate-slide-in-from-right text-[17px] text-purple-800 dark:text-purple-600 font-bold mt-5'>
+        <div className='animate-slide-in-from-right text-[17px] text-green-800 dark:text-green-600 font-bold mt-5'>
         👈🏾 Know in-depth details in our free webinar
         </div>
       </div>

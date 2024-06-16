@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div><LandingPart/>
     <CouseUSP/>
-    <div className="text-center text-2xl mt-32 font-bold text-black animate-slide-in-from-bottom transition">
+    <div className="text-center text-2xl mt-32 font-bold text-black dark:text-white animate-slide-in-from-bottom transition">
                 ⚡Register Now⚡
             </div>
     <WebCourses/>

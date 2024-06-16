@@ -1,7 +1,7 @@
 import React from 'react'
 import Web from '@/public/webdev.svg'
 import Image from 'next/image'
-import WebCard from "@/components/webDetail/webCard"
+import WebCard from "@/components/cloudDetail/cloudCard"
 
 const page = () => {
   return (
@@ -9,14 +9,14 @@ const page = () => {
       <div className='animate-slide-in-from-left '>
       <WebCard />
       </div>
-      <div className='w-2/4 text-4xl text-blue-600 text-left ml-16 font-bold mt-20'>
+      <div className='w-2/4 text-4xl text-purple-600 text-left ml-16 font-bold mt-20'>
       <div className='animate-appearence-in-view'>Full Stack Web Development</div>
         
         <div className='flex items-start'>
           <div className=' animate-appearence-in-view w-2/4 text-4xl text-black dark:text-white text-left font-bold'>
             Bootcamp
           </div>
-          <div className='animate-slide-in-from-right text-[13px] text-blue-400'>
+          <div className='animate-slide-in-from-right text-[13px] text-purple-400'>
             20 days | All Levels | For Beginners
           </div>
         </div>
