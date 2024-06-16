@@ -6,7 +6,7 @@ import Curve from '@/public/curve.svg'
 import Image from 'next/image'
 const cards = () => {
     return (
-        <div className='flex gap-14 animate-slide-in-from-bottom'>
+        <div className='flex flex-col justify-center mt-10 md:md-0 items-center md:flex-row gap-14 animate-slide-in-from-bottom'>
             <div className='w-[270px] h-[320px] border-2 dark:bg-gray-900 border-blue-400 pt-5 rounded-lg shadow-md pl-5 hover:shadow-blue-300 transition duration-250 hover:scale-110'>
                 <Image src={VisanaryTech} alt='tech' height={200} width={200} />
                 <div className='font-bold dark:text-blue-400'>

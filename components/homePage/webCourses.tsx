@@ -7,15 +7,15 @@ import Link from 'next/link'
 const webCourses = () => {
     return (
         <div className=' flex justify-center hover:scale-110 transition duration-300'>
-            <div className='mt-10 max-h-42  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-blue-600 transition hover:scale-110 animate-slide-in-from-left hover:shadow-blue-600 dark:hover:shadow-blue-600'>
+            <div className='mt-10 max-h-42 flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-blue-600 transition hover:scale-110 animate-slide-in-from-left hover:shadow-blue-600 dark:hover:shadow-blue-600'>
                 <div className='mr-5'>
                     <Image src={WebImage} alt="web" height={200} width={200} />
                 </div>
                 <div>
-                    <div className='ml-5 dark:text-blue-500 text-2xl font-bold '>
+                    <div className='ml-5 dark:text-blue-500 text-xl md:text-2xl font-bold '>
                         Web Development
                     </div>
-                    <div className='ml-5 mt-2'>
+                    <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>
                         Web Dev a process in which one creates and maintain websites, Now days is argubaly<br /> the must important skill to  have as a developer. So Lets start Learning today.
                     </div>
                     <div className='mt-9 ml-5'>

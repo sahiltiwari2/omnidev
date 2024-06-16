@@ -13,10 +13,10 @@ const webCourses = () => {
                     <Image src={AppImage} alt="web" height={200} width={200} />
                 </div>
                 <div>
-                    <div className='ml-5 dark:text-green-500 text-2xl font-bold '>
+                    <div className='ml-5 dark:text-green-500 text-xl md:text-2xl font-bold '>
                         App Development
                     </div>
-                    <div className='ml-5 mt-2'>
+                    <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>
                         Web Dev a process in which one creates and maintain websites, Now days is argubaly<br /> the must important skill to  have as a developer. So Lets start Learning today.
                     </div>
                     <div className='mt-9 ml-5'>

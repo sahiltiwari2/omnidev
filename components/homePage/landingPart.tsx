@@ -9,24 +9,27 @@ const page = () => {
 
   return (
     <div>
-      <div className='h-[500px]  w-[1250px] bg-[#934fca] p-16 rounded-[50px] hover:shadow-lg transition'>
-        <div className='flex items-center relative'>
-          <div className=' animate-appearence-in-view transition-all duration-300'>
+      <div className='h-full sm:max-h-[500px] w-full sm:max-w-[1250px] bg-[#934fca] p-16 rounded-[50px] hover:shadow-lg transition'>
+        <div className='flex flex-col md:flex-row items-center justify-between md:justify-start'>
+          <div className='animate-appearence-in-view transition-all duration-300 mb-8 md:mb-0'>
             <Image src={LearningHome} alt='learn' height={1000} width={500} />
           </div>
-          <div className='text-7xl text-[#b1dedd] font-extrabold absolute top-5 right-80 animate-appearence-in-view transition-all duration-300'>
-            <div className={ Orbitronn.className }>
-            OmniDev
+          <div>
+            <div className='text-7xl text-[#b1dedd] font-extrabold animate-appearence-in-view transition-all duration-300 mb-0 md:mb-0'>
+              <div className={Orbitronn.className}>
+                OmniDev
+              </div>
             </div>
-          </div>
-          <div className='text-16 text-white absolute top-24 right-80'>
-            Curative course kit
-          </div>
-          <div className='text-xl absolute text-[#ffffea] right-16 mt-16 max-w-[500px] animate-slide-in-from-right'>
-            Become a full-fledged developer with in-demand skills in web development, app development, and cloud computing. This curated course kit equips you for a versatile tech career.
+            <div className='text-16 text-white ml-52 mb-8 md:mb-0 sm:mt-0'>
+              Curative course kit
+            </div>
+            <div className='text-[18px] ml-10 text-[#ffffea] md:text-xl md:mt-16 max-w-[500px] animate-slide-in-from-right mb-8 md:mb-0'>
+              Become a full-fledged developer with in-demand skills in web development, app development, and cloud computing. This curated course kit equips you for a versatile tech career.
+            </div>
           </div>
         </div>
       </div>
+
 
     </div>
 
