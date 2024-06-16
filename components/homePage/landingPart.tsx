@@ -8,7 +8,7 @@ const page = () => {
 
   return (
     <div>
-      <div className='h-[500px]  w-[1250px] bg-[#934fca] p-16 rounded-[50px] shadow-lg transition hover:shadow-purple-600'>
+      <div className='h-[500px]  w-[1250px] bg-[#934fca] p-16 rounded-[50px] hover:shadow-lg transition'>
         <div className='flex items-center relative'>
           <div className=' animate-appearence-in-view transition-all duration-300'>
             <Image src={LearningHome} alt='learn' height={1000} width={500} />
