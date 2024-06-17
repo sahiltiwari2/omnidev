@@ -8,7 +8,7 @@ const webCourses = () => {
     return (
         <div className=' flex justify-center'>
             <div className='hover:scale-110 transition duration-300'>
-            <div className='mt-10  flex justify-center  flex-col md:flex-row hover:scale-110 border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-green-600 transition animate-slide-in-from-right hover:shadow-green-600 dark:hover:shadow-green-600'>
+            <div className='mt-10  flex justify-center  flex-col md:flex-row hover:scale-110 border-2 rounded-lg shadow-md p-9 max-w-[970px] bg-gray-50 dark:bg-gray-900 hover:border-green-600 transition animate-slide-in-from-right hover:shadow-green-600 dark:hover:shadow-green-600'>
                 <div className='mr-5 max-h-36  flex justify-center md:justify-start'>
                     <Image src={AppImage} alt="web" height={200} width={200} />
                 </div>
@@ -17,8 +17,7 @@ const webCourses = () => {
                         App Development
                     </div>
                     <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>
-                        Web Dev a process in which one creates and maintain websites, Now days is argubaly<br /> the must important skill to  have as a developer. So Lets start Learning today.
-                    </div>
+                    The course takes you starting from no stock knowledge, to the stage where you develop your own full fledged applications. It also contains the untold factors to fascinate recruiters.</div>
                     <div className='mt-9 ml-5'>
                     <Button color="success" variant="ghost" as={Link} href='/app'>
                         Explore More

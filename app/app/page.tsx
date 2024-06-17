@@ -2,6 +2,7 @@ import React from 'react'
 import Web from '@/public/webdev.svg'
 import Image from 'next/image'
 import WebCard from "@/components/appdetail/appCard"
+import { Poppinss } from '@/config/fonts'
 
 const page = () => {
   return (
@@ -27,10 +28,12 @@ const page = () => {
           ✔️ Live Project <br/>
           ✔️ Q & A sessions
         </div>
+        <div className={Poppinss.className}>
         <div className='animate-slide-in-from-right text-[17px] text-black mt-5  dark:text-white'>
-          This course allows one to start from the biginning and advance over a period of time in concepts of React JS, Tailwind CSS and Backend
-          services like hosting and data management. Allowing one to become capable to grab internships for further development.
+        Let's dive into the ocean of native and cross platform apps starting from native android app development and landing on the final shore of cross platform app development using Flutter.  Meanwhile we make 3 projects and learn real life applications of various tools and utilities.
         </div>
+        </div>
+        
         <div className='animate-slide-in-from-right text-[17px] text-green-800 dark:text-green-600 font-bold mt-5'>
         👈🏾 Know in-depth details in our free webinar
         </div>

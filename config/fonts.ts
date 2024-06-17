@@ -1,4 +1,4 @@
-import { Fira_Code as FontMono, Orbitron, Inter as FontSans } from "next/font/google";
+import { Fira_Code as FontMono, Orbitron,  Poppins , Inter as FontSans} from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -18,3 +18,11 @@ const Orbitronn = Orbitron({
 });
 
 export {Orbitronn};
+
+const Poppinss = Poppins({
+  subsets: ['latin'], // Adjust for supported languages if needed
+  display: 'swap',
+  weight: "100"
+});
+
+export {Poppinss};
