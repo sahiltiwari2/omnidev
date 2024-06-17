@@ -35,7 +35,8 @@ export default function ThreeDCardDemo() {
         <div className="flex justify-between items-center mt-20">
           <CardItem
             translateZ={20}
-            as="button"
+            as={Link}
+            href='/registration'
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             Register Now
