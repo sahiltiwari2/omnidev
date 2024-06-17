@@ -9,7 +9,7 @@ const page = () => {
       <div className='animate-slide-in-from-left '>
       <WebCard />
       </div>
-      <div className='w-2/4 text-4xl text-blue-600 text-left ml-16  font-bold mt-20'>
+      <div className='w-full md:w-2/4 text-4xl text-blue-600 text-left md:ml-16 md:mt-10 font-bold'>
       <div className='animate-appearence-in-view'>Full Stack Web Development</div>
         
         <div className='flex items-start flex-col md:flex-row'>

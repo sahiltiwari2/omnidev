@@ -5,14 +5,14 @@ import WebCard from "@/components/appdetail/appCard"
 
 const page = () => {
   return (
-    <div className='flex items-start '>
+    <div className='flex items-start flex-col md:flex-row '>
       <div className='animate-slide-in-from-left '>
       <WebCard />
       </div>
-      <div className='w-2/4 text-4xl text-green-500 text-left ml-16 font-bold mt-20'>
+      <div className='w-full md:w-2/4 text-4xl text-green-500 text-left md:ml-16 font-bold md:mt-20'>
       <div className='animate-appearence-in-view'>Full Stack Web Development</div>
         
-        <div className='flex items-start'>
+        <div className='flex items-start flex-col md:flex-row'>
           <div className=' animate-appearence-in-view w-2/4 text-4xl text-black dark:text-white text-left font-bold'>
             Bootcamp
           </div>

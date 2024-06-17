@@ -5,14 +5,14 @@ import WebCard from "@/components/cloudDetail/cloudCard"
 
 const page = () => {
   return (
-    <div className='flex items-start '>
+    <div className='flex items-start flex-col md:flex-row '>
       <div className='animate-slide-in-from-left '>
       <WebCard />
       </div>
-      <div className='w-2/4 text-4xl text-purple-600 text-left ml-16 font-bold mt-20'>
+      <div className='w-full md:w-2/4 text-4xl text-purple-600 text-left md:ml-16 font-bold md:mt-20'>
       <div className='animate-appearence-in-view'>Full Stack Web Development</div>
         
-        <div className='flex items-start'>
+        <div className='flex items-start flex-col md:flex-row'>
           <div className=' animate-appearence-in-view w-2/4 text-4xl text-black dark:text-white text-left font-bold'>
             Bootcamp
           </div>
@@ -27,7 +27,7 @@ const page = () => {
           ✔️ Live Project <br/>
           ✔️ Q & A sessions
         </div>
-        <div className='animate-slide-in-from-right text-[17px] text-black dark:text-white mt-5'>
+        <div className='animate-slide-in-from-right text-[17px] text-black dark:text-white mt-10 md:mt-5'>
           This course allows one to start from the biginning and advance over a period of time in concepts of React JS, Tailwind CSS and Backend
           services like hosting and data management. Allowing one to become capable to grab internships for further development.
         </div>
