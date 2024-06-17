@@ -8,16 +8,16 @@ const webCourses = () => {
     return (
         <div className=' flex justify-center '>
             <div className='hover:scale-110 transition duration-300'>
-            <div className='mt-10  flex justify-center flex-col md:flex-row border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-purple-600 dark:hover:shadow-purple-600'>
+            <div className='mt-10  flex justify-center flex-col md:flex-row border-2 rounded-lg shadow-md p-9 max-w-[970px] bg-gray-50 dark:bg-gray-900 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-purple-600 dark:hover:shadow-purple-600'>
                 <div className='mr-5 max-h-36 flex justify-center md:justify-start'>
-                    <Image src={CloudImage} alt="web" height={150} width={200} className='object-contain h-40' />
+                    <Image src={CloudImage} alt="web" height={300} width={470} className='object-contain' />
                 </div>
                 <div>
                     <div className='ml-5 dark:text-purple-500 text-xl mt-8 md:mt-0 md:text-2xl font-bold '>
                        Cloud Computing
                     </div>
                     <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>
-                        Web Dev a process in which one creates and maintain websites, Now days is argubaly<br /> the must important skill to  have as a developer. So Lets start Learning today.
+                    Become a cloud architect, not just a coder! This course empowers complete beginners to design and deploy powerful cloud applications. Master the tools and strategies that make recruiters stand up and take notice, all within one comprehensive program.
                     </div>
                     <div className='mt-9 ml-5'>
                     <Button color="secondary" variant="ghost" as={Link} href='/cloud'>

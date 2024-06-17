@@ -10,7 +10,7 @@ const webCourses = () => {
             <div className='hover:scale-110 transition duration-300'>
             <div className='mt-10  flex justify-center  flex-col md:flex-row hover:scale-110 border-2 rounded-lg shadow-md p-9 max-w-[970px] bg-gray-50 dark:bg-gray-900 hover:border-green-600 transition animate-slide-in-from-right hover:shadow-green-600 dark:hover:shadow-green-600'>
                 <div className='mr-5 max-h-36  flex justify-center md:justify-start'>
-                    <Image src={AppImage} alt="web" height={200} width={200} />
+                    <Image src={AppImage} alt="web" height={300} width={350} className='object-contain' />
                 </div>
                 <div>
                     <div className='ml-5 dark:text-green-500 mt-5 md:mt-0 text-xl md:text-2xl font-bold '>
