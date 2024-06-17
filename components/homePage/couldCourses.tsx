@@ -6,14 +6,14 @@ import Link from 'next/link'
 
 const webCourses = () => {
     return (
-        <div className=' flex justify-center'>
+        <div className=' flex justify-center '>
             <div className='hover:scale-110 transition duration-300'>
-            <div className='mt-10  flex justify-center border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-purple-600 dark:hover:shadow-purple-600'>
-                <div className='mr-5 max-h-36'>
+            <div className='mt-10  flex justify-center flex-col md:flex-row border-2 rounded-lg shadow-md p-9 max-w-6xl bg-gray-50 dark:bg-gray-900 hover:border-purple-600 transition animate-slide-in-from-left hover:shadow-purple-600 dark:hover:shadow-purple-600'>
+                <div className='mr-5 max-h-36 flex justify-center md:justify-start'>
                     <Image src={CloudImage} alt="web" height={150} width={200} className='object-contain h-40' />
                 </div>
                 <div>
-                    <div className='ml-5 dark:text-purple-500 text-xl md:text-2xl font-bold '>
+                    <div className='ml-5 dark:text-purple-500 text-xl mt-8 md:mt-0 md:text-2xl font-bold '>
                        Cloud Computing
                     </div>
                     <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>

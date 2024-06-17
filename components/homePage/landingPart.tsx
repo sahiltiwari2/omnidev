@@ -15,15 +15,15 @@ const page = () => {
             <Image src={LearningHome} alt='learn' height={1000} width={500} />
           </div>
           <div>
-            <div className='text-7xl text-[#b1dedd] font-extrabold animate-appearence-in-view transition-all duration-300 mb-0 md:mb-0'>
+            <div className='text-5xl md:text-7xl text-[#b1dedd] font-extrabold animate-appearence-in-view transition-all duration-300 mb-0 md:mb-0'>
               <div className={Orbitronn.className}>
                 OmniDev
               </div>
             </div>
-            <div className='text-16 text-white ml-52 mb-8 md:mb-0 sm:mt-0'>
+            <div className='text-16 text-white ml-24 md:ml-52 mb-8 md:mb-0 sm:mt-0'>
               Curative course kit
             </div>
-            <div className='text-[18px] ml-10 text-[#ffffea] md:text-xl md:mt-16 max-w-[500px] animate-slide-in-from-right mb-8 md:mb-0'>
+            <div className='text-[18px] text-center md:text-left md:ml-10 text-[#ffffea] md:text-xl md:mt-16 max-w-[500px] animate-slide-in-from-right mb-8 md:mb-0'>
               Become a full-fledged developer with in-demand skills in web development, app development, and cloud computing. This curated course kit equips you for a versatile tech career.
             </div>
           </div>
