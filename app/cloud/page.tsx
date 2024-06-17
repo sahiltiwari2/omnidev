@@ -20,7 +20,7 @@ const page = () => {
             20 days | All Levels | For Beginners
           </div>
         </div>
-        <div className=' animate-slide-in-from-right text-[20px] mt-16 text-gray-600 dark:text-gray-400'>
+        <div className=' animate-slide-in-from-right text-[20px]md: mt-16 text-gray-600 dark:text-gray-400'>
           ✔️ Beginner to advance<br />
           ✔️ CLoud Tech + complete AWS<br />
           ✔️ Custom Playlist for Flexibility<br />
