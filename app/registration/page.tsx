@@ -8,8 +8,6 @@ import { Input } from "@nextui-org/input";
 import Book from '@/public/book.svg'
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 import { Button, ButtonGroup } from "@nextui-org/button";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const page = () => {
@@ -25,7 +23,7 @@ const page = () => {
 
     const updateDateTime = () => {
         setCurrentDateTime(new Date().toLocaleString());
-      };
+    };
 
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -35,20 +33,20 @@ const page = () => {
         }
         else {
             updateDateTime();
-      
+
             const data = {
-              Time: currentDateTime,
-              Name: name,
-              Number: number,
-              Email: email,
-              Collage: collage,
-              Year: year,
-              YourCourse: yourcourse,
-              RegistrationNumber: rnumber,
-              Domain: selectedDomain,
+                Time: currentDateTime,
+                Name: name,
+                Number: number,
+                Email: email,
+                Collage: collage,
+                Year: year,
+                YourCourse: yourcourse,
+                RegistrationNumber: rnumber,
+                Domain: selectedDomain,
             }
-            
-            axios.post('https://sheet.best/api/sheets/09e61297-b6c0-483f-b9fd-d032caa06d79', data).then((response) => {
+
+            axios.post('https://sheet.best/api/sheets/647f5fad-b118-4366-bd28-7e09079cfb66', data).then((response) => {
                 console.log(response);
                 setName('');
                 setNumber('');
@@ -60,15 +58,16 @@ const page = () => {
                 setSelectedDomain([]);
               })
 
-    };}
+        }
+    }
 
     const handleDomainChange = (domain: string) => {
         if (selectedDomain.includes(domain)) {
-          setSelectedDomain(selectedDomain.filter((item) => item !== domain));
+            setSelectedDomain(selectedDomain.filter((item) => item !== domain));
         } else {
-          setSelectedDomain([...selectedDomain, domain]);
+            setSelectedDomain([...selectedDomain, domain]);
         }
-      }
+    }
 
     return (
         <div className='flex justify-center'>
@@ -113,7 +112,6 @@ const page = () => {
                         </div>
                     </div>
                 </div>
-
 
             </div>
             <div className=' w-2/3 border-2 border-purple-500 shadow-md hover:shadow-lg hover:shadow-purple-400  transition duration-300 ml-5 rounded-xl p-5'>
@@ -198,11 +196,11 @@ const page = () => {
                         color="danger"
                     >
                         <Checkbox value="Web Development" checked={selectedDomain.includes('Web Development')}
-                    onChange={() => handleDomainChange('Web Development')}>Web Development</Checkbox>
+                            onChange={() => handleDomainChange('Web Development')}>Web Development</Checkbox>
                         <Checkbox value="App Development" checked={selectedDomain.includes('App Development')}
-                    onChange={() => handleDomainChange('App Development')}>App Development</Checkbox>
+                            onChange={() => handleDomainChange('App Development')}>App Development</Checkbox>
                         <Checkbox value="Cloud Computing" checked={selectedDomain.includes('Cloud Computing')}
-                    onChange={() => handleDomainChange('Cloud Computing')}>Cloud computing</Checkbox>
+                            onChange={() => handleDomainChange('Cloud Computing')}>Cloud computing</Checkbox>
                     </CheckboxGroup>
                 </div>
                 <div className='mt-4 flex justify-end'>
