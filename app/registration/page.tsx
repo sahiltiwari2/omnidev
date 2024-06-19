@@ -9,6 +9,8 @@ import Book from '@/public/book.svg'
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const page = () => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date().toLocaleString());
@@ -30,6 +32,17 @@ const page = () => {
         e.preventDefault();
         if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "" || selectedDomain.length === 0) {
             console.log("naa")
+            toast.warn('Fill all the fields before submitting: ', {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                // transition: Bounce,
+                });
         }
         else {
             updateDateTime();
@@ -58,8 +71,20 @@ const page = () => {
                 setSelectedDomain([]);
             })
 
+            
+            toast('🦄Report submitted successfuly!', {
+                position: "top-left",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
+    const notify = () => toast("Wow so easy!");
 
     const handleDomainChange = (domain: string) => {
         if (selectedDomain.includes(domain)) {
@@ -118,12 +143,12 @@ const page = () => {
                     <div className='flex items-start '>
                         <div className='flex flex-col md:flex-row gap-2'>
                             <div className='flex flex-row gap-2'>
-                                <div className='text-[15px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
+                                <div className='text-[12px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
                                 <div className={Orbitronn.className}>
-                                    <div className='text-[15px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
+                                    <div className='text-[12px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
                                 </div>
                             </div>
-                            <div className='text-[15px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
+                            <div className='text-[12px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
                         </div>
                     </div>
                 </div>
@@ -144,7 +169,7 @@ const page = () => {
                             id="number"
                             value={number}
                             onChange={(e) => setNumber(e.target.value)}
-                            label="Number" />
+                            label="Phone No." />
                     </div>
                 </div>
                 <div className=' w-full mt-5 bg-white dark:bg-gray-900'>
@@ -179,7 +204,7 @@ const page = () => {
                             id="rnumber"
                             value={rnumber}
                             onChange={(e) => setRnumber(e.target.value)}
-                            label="Registration Number" />
+                            label="Reg. Number" />
                     </div>
                     <div className=' w-[300px] mt-7 md:mt-5 bg-white dark:bg-gray-900'>
                         <Input type="text"
@@ -208,10 +233,13 @@ const page = () => {
                 <div className='mt-4 flex justify-end'>
                     <Button color="secondary" variant="ghost" className=' w-32' onClick={handleSubmit}>
                         Submit
+                       
                     </Button>
+
                 </div>
                 {/* </form> */}
             </div>
+            <ToastContainer />
         </div>
     )
 }
