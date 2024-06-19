@@ -56,7 +56,7 @@ const page = () => {
                 setYourcourse('');
                 setRnumber('');
                 setSelectedDomain([]);
-              })
+            })
 
         }
     }
@@ -70,8 +70,8 @@ const page = () => {
     }
 
     return (
-        <div className='flex justify-center'>
-            <div className='w-3/5 '>
+        <div className='flex justify-center flex-col md:flex-row'>
+            <div className='md:w-3/5 '>
                 <div className='animate-appearence-in-view flex justify-center'>
                     <Image src={Register} alt='register Here' height={400} width={400} />
                 </div>
@@ -84,13 +84,13 @@ const page = () => {
                     Will teach you how to unlock your potential and take your first step in this tech world.The best example for made by students for the students 😁
                 </div>
                 <div className='flex items-start '>
-                    <div className='border-2 animate-slide-in-from-left dark:bg-gray-900 border-blue-500 shadow-lg hover:shadow-blue-300 dark:hover:shadow-blue-600 transition duration-300 rounded-lg w-auto mt-7 pb-3 pr-3'>
-                        <div className='flex items-start'>
-                            <div className='mt-10 ml-3 animate-slide-in-from-right '>
+                    <div className='border-2 animate-slide-in-from-left dark:bg-gray-900 mt-5 border-blue-500 shadow-lg hover:shadow-blue-300 dark:hover:shadow-blue-600 transition duration-300 rounded-lg w-[400px] md:w-auto md:mt-7 md:pb-3 md:pr-3'>
+                        <div className='flex md:items-start flex-col md:flex-row pt-5 md:pt-0 '>
+                            <div className='flex justify-center md:justify-start md:mt-10 md:ml-3 animate-slide-in-from-right  '>
                                 <Image src={Girl} alt='Girl' height={300} width={200} />
                             </div>
                             <div>
-                                <div className='text-blue-500  mt-3 text-2xl font-bold '>
+                                <div className='text-blue-500 text-3xl flex justify-center md:justify-start  md:mt-3 md:text-2xl font-bold '>
                                     <div className={Orbitronn.className}>
                                         Register Now
                                     </div>
@@ -98,7 +98,7 @@ const page = () => {
                                 <div className=' ml-24 text-left text-[15px]'>
                                     and get 👇🏾
                                 </div>
-                                <div className=' ml-2 mt-5'>
+                                <div className='flex justify-center md:justify-start text-[15px] mb-5 md:mb-0 md:pl-3 md:ml-2 mt-5'>
                                     • Access to the exclusive first webinar<br />
                                     • Introduction to Latest Industry Tech<br />
                                     • Domain Selection Guidence <br />
@@ -112,15 +112,19 @@ const page = () => {
                 </div>
 
             </div>
-            <div className=' w-2/3 border-2 border-purple-500 shadow-md hover:shadow-lg hover:shadow-purple-400  transition duration-300 ml-5 rounded-xl p-5'>
+            <div className='animate-slide-in-from-right mt-10 md:mt-0 md:w-2/3 border-2 border-purple-500 shadow-md hover:shadow-lg hover:shadow-purple-400  transition duration-300 md:ml-5 rounded-xl p-5'>
                 <div className='flex items-start'>
                     <Image src={Book} alt='book' height={100} width={100} />
-                    <div className='flex items-start gap-2'>
-                        <div className='text-2xl font-bold mb-2 mt-3'>Book a</div>
-                        <div className={Orbitronn.className}>
-                            <div className='mt-3 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
+                    <div className='flex items-start '>
+                        <div className='flex flex-col md:flex-row gap-2'>
+                            <div className='flex flex-row gap-2'>
+                                <div className='text-[17px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
+                                <div className={Orbitronn.className}>
+                                    <div className='text-[17px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
+                                </div>
+                            </div>
+                            <div className='text-[17px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
                         </div>
-                        <div className='mt-3 text-2xl font-bold mb-2'>to know more</div>
                     </div>
                 </div>
                 <div className='mt-4 font-bold'>
