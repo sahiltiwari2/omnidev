@@ -118,12 +118,12 @@ const page = () => {
                     <div className='flex items-start '>
                         <div className='flex flex-col md:flex-row gap-2'>
                             <div className='flex flex-row gap-2'>
-                                <div className='text-[17px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
+                                <div className='text-[15px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
                                 <div className={Orbitronn.className}>
-                                    <div className='text-[17px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
+                                    <div className='text-[15px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
                                 </div>
                             </div>
-                            <div className='text-[17px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
+                            <div className='text-[15px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
                         </div>
                     </div>
                 </div>
@@ -170,18 +170,18 @@ const page = () => {
                             id="yourcourse"
                             value={yourcourse}
                             onChange={(e) => setYourcourse(e.target.value)}
-                            label="Your Course" />
+                            label="Collage Course" />
                     </div>
                 </div>
                 <div className='flex items-start gap-2'>
-                    <div className='w-[300px] mt-5 bg-white dark:bg-gray-900 rounded-xl'>
+                    <div className='w-[300px] mt-7 md:mt-5 bg-white dark:bg-gray-900 rounded-xl'>
                         <Input type="text"
                             id="rnumber"
                             value={rnumber}
                             onChange={(e) => setRnumber(e.target.value)}
                             label="Registration Number" />
                     </div>
-                    <div className=' w-[300px] mt-5 bg-white dark:bg-gray-900'>
+                    <div className=' w-[300px] mt-7 md:mt-5 bg-white dark:bg-gray-900'>
                         <Input type="text"
                             id="year"
                             value={year}
