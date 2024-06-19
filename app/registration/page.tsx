@@ -84,8 +84,6 @@ const page = () => {
                     Will teach you how to unlock your potential and take your first step in this tech world.The best example for made by students for the students 😁
                 </div>
                 <div className='flex items-start '>
-
-
                     <div className='border-2 animate-slide-in-from-left dark:bg-gray-900 border-blue-500 shadow-lg hover:shadow-blue-300 dark:hover:shadow-blue-600 transition duration-300 rounded-lg w-auto mt-7 pb-3 pr-3'>
                         <div className='flex items-start'>
                             <div className='mt-10 ml-3 animate-slide-in-from-right '>
