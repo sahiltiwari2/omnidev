@@ -188,14 +188,14 @@ const page = () => {
                             id="collage"
                             value={collage}
                             onChange={(e) => setCollage(e.target.value)}
-                            label="Collage" />
+                            label="College" />
                     </div>
                     <div className=' w-[300px] mt-5 bg-white dark:bg-gray-900'>
                         <Input type="text"
                             id="yourcourse"
                             value={yourcourse}
                             onChange={(e) => setYourcourse(e.target.value)}
-                            label="Collage Course" />
+                            label="College Course" />
                     </div>
                 </div>
                 <div className='flex items-start gap-2'>
