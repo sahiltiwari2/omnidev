@@ -4,6 +4,7 @@ import WebCourses from '@/components/homePage/webCourses'
 import AppCourses from '@/components/homePage/appCourses'
 import CloudCourses from '@/components/homePage/couldCourses'
 import CouseUSP from '@/components/homePage/courseUSP'
+import DSACourses from '@/components/homePage/DSACourses'
 const page = () => {
   return (
     <div><LandingPart/>
@@ -14,6 +15,7 @@ const page = () => {
     <WebCourses/>
     <AppCourses/>
     <CloudCourses/>
+    <DSACourses/>
     </div>
   )
 }
