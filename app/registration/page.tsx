@@ -84,7 +84,6 @@ const page = () => {
                 });
         }
     }
-    const notify = () => toast("Wow so easy!");
 
     const handleDomainChange = (domain: string) => {
         if (selectedDomain.includes(domain)) {
@@ -228,6 +227,8 @@ const page = () => {
                             onChange={() => handleDomainChange('App Development')}>App Development</Checkbox>
                         <Checkbox value="Cloud Computing" checked={selectedDomain.includes('Cloud Computing')}
                             onChange={() => handleDomainChange('Cloud Computing')}>Cloud computing</Checkbox>
+                        <Checkbox value="DSA" checked={selectedDomain.includes('DSA')}
+                            onChange={() => handleDomainChange('DSA')}>DSA</Checkbox>
                     </CheckboxGroup>
                 </div>
                 <div className='mt-4 flex justify-end'>
