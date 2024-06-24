@@ -17,7 +17,7 @@ const webCourses = () => {
                         Data Structures and Algorithm 
                     </div>
                     <div className='ml-5 mt-2 text-[13px] md:text-[16px]'>
-                    The course takes you starting from no stock knowledge, to the stage where you develop your own full fledged applications. It also contains the untold factors to fascinate recruiters.</div>
+                    This course propels you from beginner to building complex solutions.  Master data structures, algorithms, and impress recruiters – all in one program.  Explore More!</div>
                     <div className='mt-9 ml-5'>
                     <Button color="danger" variant="ghost" as={Link} href='/dsa'>
                         Explore More
