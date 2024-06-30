@@ -235,8 +235,7 @@ const page = () => {
                 </div>
                 <div className='mt-4 flex justify-end'>
                     <Button color="secondary" variant="ghost" className=' w-32' onClick={handleSubmit}>
-                        Submit
-                       
+                        Submit  
                     </Button>
 
                 </div>
