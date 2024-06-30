@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { WobbleCard } from "../ui/wobble-card";
 import App from "@/public/appdev.svg"
 import Cloud from "@/public/cloud.svg"
@@ -10,6 +10,9 @@ import { Button } from "@nextui-org/button";
 
 
 export default function WobbleCardDemo() {
+    function MyComponent() {
+        const [hasShadow, setHasShadow] = useState(false);
+      }
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
             <WobbleCard
@@ -23,7 +26,7 @@ export default function WobbleCardDemo() {
                     <p className="mt-4 text-left  text-base/6 text-neutral-200">
                         This course propels you from beginner to building complex solutions. Master data structures, algorithms, and impress recruiters – all in one program. Explore More!
                     </p>
-                    <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg mt-4 w-[200px]">
+                    <Button radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg mt-4 w-[200px] ">
                         Select DSA
                     </Button>
                 </div>
