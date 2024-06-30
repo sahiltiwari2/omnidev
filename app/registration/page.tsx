@@ -6,11 +6,12 @@ import { Orbitronn } from '@/config/fonts'
 import Girl from '@/public/registergirl.svg'
 import { Input } from "@nextui-org/input";
 import Book from '@/public/book.svg'
-import { CheckboxGroup, Checkbox } from "@nextui-org/react";
+import { CheckboxGroup, Checkbox, Divider } from "@nextui-org/react";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import RegistrationSelection from "@/components/coursesRegistration/registrationSelection"
 
 const page = () => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date().toLocaleString());
@@ -94,6 +95,7 @@ const page = () => {
     }
 
     return (
+        <div>
         <div className='flex justify-center flex-col md:flex-row'>
             <div className='md:w-3/5 '>
                 <div className='animate-appearence-in-view flex justify-center'>
@@ -241,6 +243,11 @@ const page = () => {
                 {/* </form> */}
             </div>
             <ToastContainer />
+        </div>
+            
+            <div className='mt-10'>
+                <RegistrationSelection/>
+            </div>
         </div>
     )
 }
