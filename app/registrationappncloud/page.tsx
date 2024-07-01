@@ -33,7 +33,7 @@ const page = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "") {
+        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "" ) {
             console.log("naa")
             toast.warn('Fill all the fields before submitting: ', {
                 position: "top-left",
@@ -59,7 +59,7 @@ const page = () => {
                 Year: year,
                 YourCourse: yourcourse,
                 RegistrationNumber: rnumber,
-                Domain: "Cloud Computing",
+                Domain: "App Dev",
             }
 
             axios.post('https://sheet.best/api/sheets/647f5fad-b118-4366-bd28-7e09079cfb66', data).then((response) => {
@@ -149,7 +149,7 @@ const page = () => {
                                     <div className='flex flex-row gap-2'>
                                         <div className='text-[12px] md:text-2xl font-bold mb:mb-2 mt-3'>Registering for</div>
                                         <div className={Orbitronn.className}>
-                                            <div className='text-[12px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>Cloud Computing </div>
+                                            <div className='text-[12px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>App Dev & Cloud</div>
                                         </div>
                                     </div>
                                     <div className='text-[12px] md:mt-3 md:text-2xl font-bold mb-2'></div>
