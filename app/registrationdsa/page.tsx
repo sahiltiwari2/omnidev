@@ -11,7 +11,9 @@ import { Button, ButtonGroup } from "@nextui-org/button";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RegistrationSelection from "@/components/coursesRegistration/registrationSelection"
+import { ArrowLeftIcon } from '@chakra-ui/icons'
+import Link from 'next/link';
+
 
 const page = () => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date().toLocaleString());
@@ -141,30 +143,33 @@ const page = () => {
                 <div className='animate-slide-in-from-right mt-10 md:mt-0 md:w-2/3 border-2 border-purple-500 shadow-md hover:shadow-lg hover:shadow-purple-400  transition duration-300 md:ml-5 rounded-xl p-5'>
                     <div className='flex items-start'>
                         <Image src={Book} alt='book' height={100} width={100} />
-                        <div className='flex items-start '>
-                            <div className='flex flex-col md:flex-row gap-2'>
-                                <div className='flex flex-row gap-2'>
-                                    <div className='text-[12px] md:text-2xl font-bold mb:mb-2 mt-3'>Book a</div>
-                                    <div className={Orbitronn.className}>
-                                        <div className='text-[12px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>free live webinar</div>
+                        <div className='flex flex-col items-end'>
+                            <div className='flex items-start '>
+                                <div className='flex flex-col md:flex-row gap-2'>
+                                    <div className='flex flex-row gap-2'>
+                                        <div className='text-[12px] md:text-2xl font-bold mb:mb-2 mt-3'>Registering for</div>
+                                        <div className={Orbitronn.className}>
+                                            <div className='text-[12px] mt-3 md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500'>DSA</div>
+                                        </div>
                                     </div>
+                                    <div className='text-[12px] md:mt-3 md:text-2xl font-bold mb-2'></div>
                                 </div>
-                                <div className='text-[12px] md:mt-3 md:text-2xl font-bold mb-2'>to know more</div>
                             </div>
+                            <Link href="/"><div className='text-teal-600 dark:text-teal-300'><ArrowLeftIcon />  Explore more Courses</div></Link>
                         </div>
                     </div>
-                    <div className='mt-4 font-bold'>
+                    <div className='mt-6 font-bold'>
                         Personal Information:
                     </div>
                     <div className='flex items-start gap-2'>
-                        <div className='w-[300px] mt-5 bg-white dark:bg-gray-900 rounded-xl'>
+                        <div className='w-[300px] mt-6 bg-white dark:bg-gray-900 rounded-xl'>
                             <Input type="text"
                                 id="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 label="Name" />
                         </div>
-                        <div className=' w-[300px] mt-5 bg-white dark:bg-gray-900'>
+                        <div className=' w-[300px] mt-6 bg-white dark:bg-gray-900'>
                             <Input type="text"
                                 id="number"
                                 value={number}
@@ -172,25 +177,25 @@ const page = () => {
                                 label="Phone No." />
                         </div>
                     </div>
-                    <div className=' w-full mt-5 bg-white dark:bg-gray-900'>
+                    <div className=' w-full mt-6 bg-white dark:bg-gray-900'>
                         <Input type="email"
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             label="Email" />
                     </div>
-                    <div className='mt-4 font-bold'>
+                    <div className='mt-6 font-bold'>
                         College Information:
                     </div>
                     <div className='flex items-start gap-2'>
-                        <div className='w-[300px] mt-5 bg-white dark:bg-gray-900 rounded-xl'>
+                        <div className='w-[300px] mt-6 bg-white dark:bg-gray-900 rounded-xl'>
                             <Input type="text"
                                 id="collage"
                                 value={collage}
                                 onChange={(e) => setCollage(e.target.value)}
                                 label="College" />
                         </div>
-                        <div className=' w-[300px] mt-5 bg-white dark:bg-gray-900'>
+                        <div className=' w-[300px] mt-6 bg-white dark:bg-gray-900'>
                             <Input type="text"
                                 id="yourcourse"
                                 value={yourcourse}
@@ -199,14 +204,14 @@ const page = () => {
                         </div>
                     </div>
                     <div className='flex items-start gap-2'>
-                        <div className='w-[300px] mt-7 md:mt-5 bg-white dark:bg-gray-900 rounded-xl'>
+                        <div className='w-[300px] mt-7 md:mt-6 bg-white dark:bg-gray-900 rounded-xl'>
                             <Input type="text"
                                 id="rnumber"
                                 value={rnumber}
                                 onChange={(e) => setRnumber(e.target.value)}
                                 label="Reg. Number" />
                         </div>
-                        <div className=' w-[300px] mt-7 md:mt-5 bg-white dark:bg-gray-900'>
+                        <div className=' w-[300px] mt-7 md:mt-6 bg-white dark:bg-gray-900'>
                             <Input type="text"
                                 id="year"
                                 value={year}
@@ -214,30 +219,9 @@ const page = () => {
                                 label="Year" />
                         </div>
                     </div>
-                    <div className='mt-4 font-bold'>
-                        Select Courses:
-                    </div>
-                    <div className='ml-3 mt-2'>
-                        <CheckboxGroup
-                            orientation="horizontal"
-                            color="danger"
-                        >
-                            <Checkbox value="Web Development" checked={selectedDomain.includes('Web Development')}
-                                onChange={() => handleDomainChange('Web Development')}>Web Development</Checkbox>
-                            <Checkbox value="App Development" checked={selectedDomain.includes('App Development')}
-                                onChange={() => handleDomainChange('App Development')}>App Development</Checkbox>
-                            <Checkbox value="Cloud Computing" checked={selectedDomain.includes('Cloud Computing')}
-                                onChange={() => handleDomainChange('Cloud Computing')}>Cloud computing</Checkbox>
-                            <Checkbox value="DSA" checked={selectedDomain.includes('DSA')}
-                                onChange={() => handleDomainChange('DSA')}>DSA</Checkbox>
-                            <Checkbox value="DSA" checked={selectedDomain.includes('DSA')}
-                                onChange={() => handleDomainChange('DSA')}>App Dev & Cloud</Checkbox>
-                            <Checkbox value="DSA" checked={selectedDomain.includes('DSA')}
-                                onChange={() => handleDomainChange('DSA')}>Web Dev & Cloud</Checkbox>
-                        </CheckboxGroup>
-                    </div>
-                    <div className='mt-4 flex justify-end'>
-                        <Button color="secondary" variant="ghost" className=' w-32' onClick={handleSubmit}>
+
+                    <div className='mt-8 flex justify-end'>
+                        <Button color="secondary" variant="ghost" className=' w-32 ml-10' onClick={handleSubmit}>
                             Submit
                         </Button>
                     </div>
