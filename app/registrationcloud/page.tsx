@@ -33,7 +33,7 @@ const page = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "" || selectedDomain.length === 0) {
+        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "") {
             console.log("naa")
             toast.warn('Fill all the fields before submitting: ', {
                 position: "top-left",
@@ -59,7 +59,7 @@ const page = () => {
                 Year: year,
                 YourCourse: yourcourse,
                 RegistrationNumber: rnumber,
-                Domain: selectedDomain,
+                Domain: "Cloud Computing",
             }
 
             axios.post('https://sheet.best/api/sheets/647f5fad-b118-4366-bd28-7e09079cfb66', data).then((response) => {

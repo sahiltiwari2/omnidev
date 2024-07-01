@@ -5,6 +5,7 @@ import AppCourses from '@/components/homePage/appCourses'
 import CloudCourses from '@/components/homePage/couldCourses'
 import CouseUSP from '@/components/homePage/courseUSP'
 import DSACourses from '@/components/homePage/DSACourses'
+import AppnCloudCourses from "@/components/homePage/appncloudCouses"
 const page = () => {
   return (
     <div><LandingPart/>
@@ -16,6 +17,7 @@ const page = () => {
     <AppCourses/>
     <CloudCourses/>
     <DSACourses/>
+    <AppnCloudCourses/>
     </div>
   )
 }
