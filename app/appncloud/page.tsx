@@ -11,7 +11,7 @@ const page = () => {
         <WebCard />
       </div>
       <div className='w-full md:w-2/4 text-4xl text-[#2d5f77] text-left md:ml-16 font-bold md:mt-20'>
-        <div className='animate-appearence-in-view'>App and Cloud Bundel</div>
+        <div className='animate-appearence-in-view'>App and Cloud Bundle</div>
 
         <div className='flex items-start flex-col md:flex-row'>
           <div className=' animate-appearence-in-view w-2/4 text-4xl text-black dark:text-white text-left font-bold'>
