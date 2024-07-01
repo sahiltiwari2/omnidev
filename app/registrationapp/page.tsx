@@ -1,12 +1,12 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Register from '@/public/register.svg'
 import { Orbitronn } from '@/config/fonts'
 import Girl from '@/public/registergirl.svg'
 import { Input } from "@nextui-org/input";
 import Book from '@/public/book.svg'
-import { CheckboxGroup, Checkbox, Divider } from "@nextui-org/react";
+import { CheckboxGroup, Checkbox, Divider, Modal, ModalContent, ModalBody, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,11 +25,9 @@ const page = () => {
     const [yourcourse, setYourcourse] = useState("");
     const [rnumber, setRnumber] = useState("");
     const [selectedDomain, setSelectedDomain] = useState<string[]>([]);
-
     const updateDateTime = () => {
         setCurrentDateTime(new Date().toLocaleString());
     };
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -96,7 +94,9 @@ const page = () => {
         }
     }
 
+
     return (
+
         <div>
             <div className='flex justify-center flex-col md:flex-row'>
                 <div className='md:w-3/5 '>
