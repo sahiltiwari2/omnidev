@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "OmniDev",
-  description: "Thelka Omlet",
+  name: "CIIE OmniDev Kit",
+  description: "CIIE Provided Course Kit",
   navItems: [
     {
       label: "Home",

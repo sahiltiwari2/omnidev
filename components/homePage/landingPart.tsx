@@ -21,7 +21,7 @@ const page = () => {
               </div>
               
               <div className={Orbitronn.className}>
-                OmniDev
+                CIIE OmniDev
               </div>
             </div>
             <div className=''>

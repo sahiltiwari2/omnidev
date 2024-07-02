@@ -105,7 +105,7 @@ const page = () => {
                     </div>
                     <div className={Orbitronn.className}>
                         <div className='text-purple-600 text-3xl font-bold animate-slide-in-from-left ml-20'>
-                            OmniDev Courses
+                            CIIE OmniDev Course Kit
                         </div>
                     </div>
                     <div className='animate-slide-in-from-left flex justify-center'>
