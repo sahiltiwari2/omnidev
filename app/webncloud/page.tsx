@@ -69,10 +69,10 @@ const page = () => {
         </div>
         <div className='animate-slide-in-from-right text-[15px] md:text-[17px] text-black dark:text-white mt-16  md:mt-5'>
           This course allows one to start from the beginning and advance over a period of time in concepts of React JS, Tailwind CSS and Backend
-          services like hosting and data management. Allowing one to become capable to grab internships for further development.
+          services like hosting and data management. Allowing one to become capable to grab internships for further development in Cloud or web.
         </div>
         <div className='animate-slide-in-from-right text-[17px] text-purple-800 dark:text-purple-600 font-bold mt-5'>
-          👈🏾 Know in-depth details in our free webinar
+          👈🏾 Know in-depth details in our free webinar 
         </div>
       </div>
     </div>

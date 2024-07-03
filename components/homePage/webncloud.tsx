@@ -1,5 +1,5 @@
 import React from 'react'
-import AppImage from '@/public/appdeva.svg'
+import AppImage from '@/public/webncloud.svg'
 import Image from 'next/image'
 import { Button } from '@nextui-org/button'
 import Link from 'next/link'

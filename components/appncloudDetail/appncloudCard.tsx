@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Link from "next/link";
-import Web from "@/public/cloud.svg"
+import Web from "@/public/appncloud.svg"
 
 export default function ThreeDCardDemo() {
   return (
