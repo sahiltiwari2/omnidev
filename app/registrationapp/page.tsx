@@ -13,6 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ArrowLeftIcon } from '@chakra-ui/icons'
 import Link from 'next/link';
+import Email from '@/emails.json';
 
 
 const page = () => {
@@ -31,7 +32,7 @@ const page = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "" ) {
+        if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "") {
             console.log("naa")
             toast.warn('Fill all the fields before submitting: ', {
                 position: "top-left",
@@ -45,7 +46,29 @@ const page = () => {
                 // transition: Bounce,
             });
         }
+        else if(Email.some(user => user.email === email)){
+            toast.warn('You can not use one email twice for registraion: Change Mail ', {
+                position: "top-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                // transition: Bounce,
+            });
+        }
         else {
+
+            const res = await fetch('/api/addEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
             updateDateTime();
 
             const data = {
