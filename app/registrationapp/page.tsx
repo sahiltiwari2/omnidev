@@ -106,6 +106,21 @@ const page = () => {
                 progress: undefined,
                 theme: "light",
             });
+
+            toast('Kindly join the whatsapp community...', {
+                position: "top-left",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+            if (confirm("Kindly join our whatsapp community and Anouncement group in it. Click OK to proceed.")){
+                window.open("https://chat.whatsapp.com/HFvJj1sRC0WCLPv0B7U8Br")
+            }
         }
     }
 
