@@ -45,6 +45,6 @@ export const siteConfig = {
     // },
   ],
   links: {
-    discord: "https://discord.gg/4BRZnezc",
+    discord: "https://discord.com/invite/NnvmTMkn",
   },
 };
