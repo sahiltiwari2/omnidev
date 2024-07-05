@@ -1,0 +1,12 @@
+[
+    {
+      "question": "What is the capital of France?",
+      "incorrect": ["Berlin", "London", "Madrid"],
+      "correct": "Paris"
+    },
+    {
+      "question": "What is the largest ocean on Earth?",
+      "incorrect": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+      "correct": "Pacific Ocean"
+    }
+  ]
