@@ -1,26 +1,25 @@
 'use client'
 import { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '@/firebse.config';
+import { auth, database } from '@/firebse.config';
+import { ref, set } from 'firebase/database';
 import { Orbitronn } from '@/config/fonts';
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
 import { Input } from '@nextui-org/input';
 import Image from 'next/image';
 import Collab from '@/public/collab.svg';
-import {EyeFilledIcon} from "@/public/EyeFilledIcon";
-import {EyeSlashFilledIcon} from "@/public/EyeSlashFilledIcon";
+import { EyeFilledIcon } from "@/public/EyeFilledIcon";
+import { EyeSlashFilledIcon } from "@/public/EyeSlashFilledIcon";
 import React from 'react';
 
 const SignUp = () => {
-
   const [isVisible, setIsVisible] = React.useState(false);
-
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [
     createUserWithEmailAndPassword,
     user,
@@ -30,9 +29,12 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
-      await createUserWithEmailAndPassword(email, password);
+      const userCredential = await createUserWithEmailAndPassword(email, password);
+      const emailKey = email.replace(/\./g, '_');
+      await set(ref(database, `userName/${emailKey}`), name);
       setEmail('');
       setPassword('');
+      setName('');
     } catch (e) {
       console.error(e);
     }
@@ -56,12 +58,24 @@ const SignUp = () => {
           <div className='ml-10'>
             <div>
               <div className='font-bold text-xl mt-20'>
-                <Input type="email" label="Name" variant='underlined' className='w-[320px]'
+                <Input
+                  type="text"
+                  label="Name"
+                  variant='underlined'
+                  className='w-[320px]'
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className='font-bold text-xl mt-10'>
-                <Input type="email" label="Email" variant='underlined' className='w-[320px]' value={email}
-                  onChange={(e) => setEmail(e.target.value)} />
+                <Input
+                  type="email"
+                  label="Email"
+                  variant='underlined'
+                  className='w-[320px]'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className='font-bold text-xl mt-10'>
                 <Input
@@ -71,7 +85,11 @@ const SignUp = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   endContent={
-                    <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                    <button
+                      className="focus:outline-none"
+                      type="button"
+                      onClick={toggleVisibility}
+                    >
                       {isVisible ? (
                         <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
                       ) : (
@@ -85,21 +103,25 @@ const SignUp = () => {
               </div>
             </div>
             <div className='  flex  justify-end mr-20'>
-            <Button color="primary" onClick={handleSignUp} className='mt-10 w-[150px]'>
-             Sign-Up
-            </Button>
+              <Button
+                color="primary"
+                onClick={handleSignUp}
+                className='mt-10 w-[150px]'
+              >
+                Sign-Up
+              </Button>
             </div>
           </div>
-            <div className='text-[13px] mt-10 flex gap-2'>
-              <div>
-              Have an account ? 
-              </div>
-              <div className='text-blue-500 '>
-                <Link href="/login">
-                Sign In
-                </Link>
-              </div>
+          <div className='text-[13px] mt-10 flex gap-2'>
+            <div>
+              Have an account ?
             </div>
+            <div className='text-blue-500 '>
+              <Link href="/login">
+                Sign In
+              </Link>
+            </div>
+          </div>
         </div>
         <div className='w-[500px] border-2 bg-blue-500 rounded-xl pl-10 pt-24'>
           <Image src={Collab} alt='Collab' height={600} width={400} />
