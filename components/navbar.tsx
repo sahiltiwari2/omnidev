@@ -15,7 +15,6 @@ import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { Orbitronn } from '@/config/fonts'
-
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
@@ -23,7 +22,7 @@ import {
 } from "@/components/icons";
 
 export const Navbar = () => {
- 
+
 
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
@@ -31,7 +30,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <div className={Orbitronn.className}>
             <p className="font-bold text-inherit text-[25px]">CIIE</p>
-            </div>
+          </div>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
@@ -60,6 +59,9 @@ export const Navbar = () => {
             <DiscordIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          <Button color="primary" variant="ghost" className="ml-3"  as={Link} href="/sign-up">
+            Sign-up
+          </Button>
         </NavbarItem>
       </NavbarContent>
 

@@ -11,10 +11,10 @@ export const siteConfig = {
   ],
   navMenuItems: [
     
-    // {
-    //   label: "Profile",
-    //   href: "/profile",
-    // },
+    {
+      label: "Sign-Up",
+      href: "/sign-up",
+    }
     // {
     //   label: "Dashboard",
     //   href: "/dashboard",
