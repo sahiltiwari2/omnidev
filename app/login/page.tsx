@@ -2,17 +2,6 @@
 import { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useRouter } from 'next/navigation';
-import { auth } from '@/firebse.config';
-import { Orbitronn } from '@/config/fonts';
-import { Button } from '@nextui-org/button';
-import Link from 'next/link';
-import { Input } from '@nextui-org/input';
-import Image from 'next/image';
-import Collab from '@/public/login.svg';
-import { EyeFilledIcon } from "@/public/EyeFilledIcon";
-import { EyeSlashFilledIcon } from "@/public/EyeSlashFilledIcon";
-import React from 'react';
-
 
 const SignIn = () => {
 
