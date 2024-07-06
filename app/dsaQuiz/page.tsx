@@ -5,28 +5,32 @@ import { Checkbox, Button } from '@nextui-org/react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ref, onValue, update, set } from "firebase/database";
 import { auth, database } from '@/firebse.config';
+import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react'
+import { Orbitronn } from '@/config/fonts';
 
 const Page = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [email, setEmail] = useState<string | null>(null);
-    const [selectedOptions, setSelectedOptions] = useState<number[]>(Array(data.length).fill(-1)); // Initialize state to track selected options
-    const [score, setScore] = useState(0); // Initialize state to track the score
+    const [selectedOptions, setSelectedOptions] = useState<number[]>(Array(data.length).fill(-1));
+    const [score, setScore] = useState(0); 
     const [username, setUserName] = useState('');
-    const [currentScore, setCurrentScore] = useState(0); // Track current score from the database
-    const [attemptscore, setAttemptScore] = useState(0); // Track current score from the database
+    const [currentScore, setCurrentScore] = useState(0); 
+    const [attemptscore, setAttemptScore] = useState(0);
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setIsLoggedIn(true);
-                setEmail(user.email); // Store user email in the state
-                console.log(user.email);
+                setEmail(user.email);
+                // console.log(user.email);
             } else {
                 setIsLoggedIn(false);
                 setEmail(null);
             }
         });
 
+        onOpen();
         return () => unsubscribe();
     }, []);
 
@@ -56,9 +60,9 @@ const Page = () => {
     const handleCheckboxChange = (questionIndex: number, optionIndex: number) => {
         const newSelectedOptions = [...selectedOptions];
         if (newSelectedOptions[questionIndex] === optionIndex) {
-            newSelectedOptions[questionIndex] = -1; // Deselect if the same option is clicked again
+            newSelectedOptions[questionIndex] = -1; 
         } else {
-            newSelectedOptions[questionIndex] = optionIndex; // Select the new option
+            newSelectedOptions[questionIndex] = optionIndex; 
         }
         setSelectedOptions(newSelectedOptions);
     };
@@ -67,24 +71,56 @@ const Page = () => {
         let newScore = 0;
         selectedOptions.forEach((selectedOption, questionIndex) => {
             if (selectedOption === data[questionIndex].incorrect.length) {
-                newScore += 10; // Increment score by 10 for each correct answer
+                newScore += 10;
             }
         });
         const updatedScore = currentScore + newScore;
         setScore(updatedScore);
         setAttemptScore(newScore);
 
-        // Update the score in the database
         if (username) {
             await set(ref(database, `DSA Score/${username}`), updatedScore);
         }
+
     };
 
     return (
         <div>
-            <div>
-                {email ? email : 'No user logged in'} {/* Display the stored email or a default message */}
-                {username ? username : 'No user logged in'} {/* Display the stored username or a default message */}
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader className="flex flex-col gap-1">
+                                Rules for the Quiz
+                            </ModalHeader>
+                            <ModalBody>
+                                <h1>
+                                    1. You can only attempt this quiz onces <br /><br />
+                                    2. After selecting all the answers click sbmit. <br /><br />
+                                    3. 10 Points will be given for every correct answer.  <br /><br />
+                                    4. This test is for your own understanding, so do not cheat. <br /><br />
+                                    6. All the best and keep working hard.
+                                </h1>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Ok
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
+            <div className='text-3xl font-bold'>
+
+                {/* {email ? email : 'No user logged in'} {/* Display the stored email or a default message */}
+                {/* {username ? username : 'No user logged in'} Display the stored username or a default message  */}
+                <div className={Orbitronn.className}>
+                    DSA MCQ test
+                </div>
+                <div className='text-xl font-normal text-red-600'>
+                    All the Best 👍
+                </div>
             </div>
             <div className='flex justify-center'>
                 <div className='mt-16 ml-5'>
@@ -98,7 +134,7 @@ const Page = () => {
                                     {item.incorrect.map((option, optionIndex) => (
                                         <li key={optionIndex} style={{ marginBottom: '5px' }}>
                                             <div className='ml-28'>
-                                                <Checkbox 
+                                                <Checkbox
                                                     isSelected={selectedOptions[questionIndex] === optionIndex}
                                                     onChange={() => handleCheckboxChange(questionIndex, optionIndex)}
                                                 >
@@ -108,8 +144,8 @@ const Page = () => {
                                         </li>
                                     ))}
                                     <div className='ml-28'>
-                                        <Checkbox 
-                                            isSelected={selectedOptions[questionIndex] === item.incorrect.length} 
+                                        <Checkbox
+                                            isSelected={selectedOptions[questionIndex] === item.incorrect.length}
                                             onChange={() => handleCheckboxChange(questionIndex, item.incorrect.length)}
                                         >
                                             {item.correct}
@@ -120,10 +156,10 @@ const Page = () => {
                         </div>
                     ))}
                     <div className='flex justify-center mt-5'>
-                        <Button onPress={handleSubmit}>Submit</Button>
+                        <Button onPress={handleSubmit} variant='ghost' color='success' className='w-32'>Submit </Button>
                     </div>
                     <div className='flex justify-center mt-5'>
-                        <p>Score: {attemptscore}</p>
+                        {/* <p>Score: {attemptscore}</p> */}
                     </div>
                 </div>
             </div>
