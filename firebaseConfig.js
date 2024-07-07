@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database"; // Import ref and set functions for Realtime Database
 import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration

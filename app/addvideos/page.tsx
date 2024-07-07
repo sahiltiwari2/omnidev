@@ -3,13 +3,12 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import withAuth from '../../components/withAuth'; // Adjust the path as needed
-
+import withAuth from '../../components/withAuth';  
 const Page = () => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [date, setDate] = useState('');
-  const [course, setCourse] = useState(''); // State for selected course
+  const [course, setCourse] = useState('');  
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();

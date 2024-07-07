@@ -16,6 +16,18 @@ export const siteConfig = {
       href: "/addvideos"
     },
     {
+      label: "Quiz",
+      href: "/dsaQuiz"
+    },
+    {
+      label: "StartQuiz",
+      href: "/startQuiz"
+    },
+    {
+      label: "Score Board",
+      href: "/userScore"
+    },
+    {
       label: " ",
       href: "/cloudvideo"
     },

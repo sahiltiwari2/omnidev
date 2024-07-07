@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 // Import necessary modules
 import { useEffect, useState, useRef } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -78,9 +77,8 @@ export const Navbar = () => {
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item: NavItem) => (
             <NavbarItem key={item.href}>
-              {isLoggedIn ? (  // Display all items if logged in
-                isAdmin() ? (
-                  // Display all items if admin
+              {isLoggedIn ? (
+                isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz"  || item.label === "Score Board" ? (
                   <NextLink
                     className={clsx(
                       linkStyles({ color: "foreground" }),
@@ -91,23 +89,8 @@ export const Navbar = () => {
                   >
                     {item.label}
                   </NextLink>
-                ) : ( // Display only "Class-Recordings" for non-admins
-                  item.label === "Class-Recordings" && (
-                    <NextLink
-                      className={clsx(
-                        linkStyles({ color: "foreground" }),
-                        "data-[active=true]:text-primary data-[active=true]:font-medium"
-                      )}
-                    color="foreground"
-                    href={item.href}
-                    >
-                      {item.label}
-                    </NextLink>
-                  )
-                )
-              ) : ( // Display nothing if not logged in
-                null
-              )}
+                ) : null
+              ) : null}
             </NavbarItem>
           ))}
         </ul>
