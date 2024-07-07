@@ -1,5 +1,4 @@
-export type SiteConfig = typeof siteConfig;
-
+// site.ts
 export const siteConfig = {
   name: "CIIE OmniDev Kit",
   description: "CIIE Provided Course Kit",
@@ -8,13 +7,29 @@ export const siteConfig = {
       label: "Home",
       href: "/",
     },
+    {
+      label: "Class-Recordings",
+      href: "/recording"
+    },
+    {
+      label: "Add-Video",
+      href: "/addvideos"
+    },
+    {
+      label: " ",
+      href: "/cloudvideo"
+    },
+    {
+      label: " ",
+      href: "/login"
+    },
   ],
   navMenuItems: [
     
-    {
-      label: "Sign-Up",
-      href: "/sign-up",
-    }
+    // {
+    //   label: "Profile",
+    //   href: "/profile",
+    // },
     // {
     //   label: "Dashboard",
     //   href: "/dashboard",
@@ -45,6 +60,8 @@ export const siteConfig = {
     // },
   ],
   links: {
-    discord: "https://discord.gg/4BRZnezc",
+    discord: "https://discord.com/invite/NnvmTMkn",
   },
 };
+
+export type SiteConfig = typeof siteConfig;

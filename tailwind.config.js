@@ -1,4 +1,4 @@
-import {nextui} from '@nextui-org/theme'
+import { nextui } from '@nextui-org/theme';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        vedio: '600px'
+      },
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-geist-mono)"],
@@ -16,5 +19,18 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui(),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none', /* IE and Edge */
+          'scrollbar-width': 'none', /* Firefox */
+        },
+        '.no-scrollbar::-webkit-scrollbar': {
+          'display': 'none', /* WebKit */
+        },
+      });
+    }
+  ],
 }

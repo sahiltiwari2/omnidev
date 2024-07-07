@@ -1,8 +1,9 @@
 'use client'
+
 import { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth, database } from '@/firebse.config';
-import { ref, set } from 'firebase/database';
+import { auth, firestore } from '@/firebaseConfig';
+import { doc, getDoc, setDoc, query, where, collection, getDocs } from 'firebase/firestore';
 import { Orbitronn } from '@/config/fonts';
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
@@ -11,10 +12,12 @@ import Image from 'next/image';
 import Collab from '@/public/collab.svg';
 import { EyeFilledIcon } from "@/public/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/public/EyeSlashFilledIcon";
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 
 const SignUp = () => {
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const [email, setEmail] = useState('');
@@ -27,23 +30,68 @@ const SignUp = () => {
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
 
-  const handleSignUp = async () => {
+  const router = useRouter();
+
+  const signUp = async () => {
     try {
+      // Check if the username is already taken
+      const usernameRef = doc(firestore, "usernames", name);
+      const usernameDoc = await getDoc(usernameRef);
+
+      if (usernameDoc.exists()) {
+        throw new Error("Username is already taken. Please choose another one.");
+      }
+
+      // Check if the email is already used
+      const emailQuery = query(collection(firestore, "users"), where("email", "==", email));
+      const emailQuerySnapshot = await getDocs(emailQuery);
+
+      if (!emailQuerySnapshot.empty) {
+        throw new Error("Email is already in use. Please choose another one.");
+      }
+
+      // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(email, password);
-      const emailKey = email.replace(/\./g, '_');
-      await set(ref(database, `userName/${emailKey}`), name);
+      
+      if (!userCredential) {
+        throw new Error("Failed to create user. Please try again.");
+      }
+
+      // Store the username and email in Firestore
+      await setDoc(usernameRef, { email });
+
+      // Store additional user information in Firestore
+      const userRef = doc(firestore, "users", userCredential.user.uid);
+      await setDoc(userRef, { name, email });
+
+      // Clear form fields
       setEmail('');
       setPassword('');
       setName('');
+
+      // Navigate to home page
+      router.push('/');
     } catch (e) {
       console.error(e);
+      throw e;
     }
+  };
+
+  const handleSignUp = () => {
+    toast.promise(
+      signUp(),
+      {
+        loading: 'Signing up...',
+        success: 'Signed up successfully!',
+        error: (err) => err.message || 'Could not sign up.',
+      }
+    );
   };
 
   return (
     <div>
       <div className='flex p-5 shadow-lg bg-gray-50 justify-center'>
-        <div className='w-[450px]  bg-gray-50 h-[600px]'>
+        <div className='w-[450px] bg-gray-50 h-[600px]'>
           <div className='font-bold text-blue-500'>
             <div className={Orbitronn.className}>
               CIIE Omnidev
@@ -102,7 +150,7 @@ const SignUp = () => {
                 />
               </div>
             </div>
-            <div className='  flex  justify-end mr-20'>
+            <div className='flex justify-end mr-20'>
               <Button
                 color="primary"
                 onClick={handleSignUp}
@@ -114,9 +162,9 @@ const SignUp = () => {
           </div>
           <div className='text-[13px] mt-10 flex gap-2'>
             <div>
-              Have an account ?
+              Have an account?
             </div>
-            <div className='text-blue-500 '>
+            <div className='text-blue-500'>
               <Link href="/login">
                 Sign In
               </Link>
@@ -127,6 +175,7 @@ const SignUp = () => {
           <Image src={Collab} alt='Collab' height={600} width={400} />
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
