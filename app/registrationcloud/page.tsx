@@ -35,8 +35,7 @@ const page = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (name === "" || number === "" || email === "" || collage === "" || year === "" || yourcourse === "" || rnumber === "") {
-            console.log("naa")
-            toast.warn('Fill all the fields before submitting: ', {
+             toast.warn('Fill all the fields before submitting: ', {
                 position: "top-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -85,8 +84,7 @@ const page = () => {
             }
 
             axios.post('https://sheet.best/api/sheets/123f96ac-1fed-4cf7-aded-92ddd51ebf39', data).then((response) => {
-                console.log(response);
-                setName('');
+                 setName('');
                 setNumber('');
                 setEmail('');
                 setCollage('');

@@ -40,8 +40,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log('Logged in user:', user);
-      setEmail('');
+       setEmail('');
       setPassword('');
       setError(null);
       router.push('/'); // Redirect to home page or any other page

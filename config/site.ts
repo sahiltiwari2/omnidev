@@ -28,8 +28,20 @@ export const siteConfig = {
       href: "/userScore"
     },
     {
+      label: "Notes",
+      href: "/notes"
+    },
+    {
+      label: "Add Notes",
+      href: "/addNotes"
+    },
+    {
       label: " ",
       href: "/cloudvideo"
+    },
+    {
+      label: " ",
+      href: "/dsaNotes"
     },
     {
       label: " ",

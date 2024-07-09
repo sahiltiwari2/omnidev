@@ -20,8 +20,7 @@ const getQuestions = () => {
 const writeQuestions = (data) => {
     try {
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-        console.log('Questions updated successfully!');
-    } catch (error) {
+     } catch (error) {
         console.error('Error writing questions:', error);
     }
 };
@@ -51,8 +50,7 @@ export async function POST(request) {
 export async function DELETE() {
     try {
         writeQuestions([]); // Clear the questions by writing an empty array
-        console.log('Questions cleared successfully!');
-        return NextResponse.json({ message: 'Questions cleared successfully' }, { status: 200 });
+         return NextResponse.json({ message: 'Questions cleared successfully' }, { status: 200 });
     } catch (error) {
         console.error('Error clearing questions:', error);
         return NextResponse.json({ message: 'Error clearing questions' }, { status: 500 });

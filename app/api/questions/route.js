@@ -17,8 +17,7 @@ const getQuestions = () => {
 const writeQuestions = (data) => {
     try {
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-        console.log('Questions updated successfully!');
-    } catch (error) {
+     } catch (error) {
         console.error('Error writing questions:', error);
     }
 };

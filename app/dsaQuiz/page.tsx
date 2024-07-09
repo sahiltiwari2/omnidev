@@ -1,14 +1,17 @@
-"use client"
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import data from '@/public/api/questions/dsaQuestions.json';
 import { Checkbox, Button } from '@nextui-org/react';
-import { auth, database, firestore } from '@/firebaseConfig'; // Import Firebase database
-import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react';
+import { auth, database, firestore } from '@/firebaseConfig';
+import { useDisclosure } from '@nextui-org/react';
 import { Orbitronn } from '@/config/fonts';
 import { onAuthStateChanged } from 'firebase/auth';
 import { setDoc, doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import withAuth from '@/components/withAuth';
-import { DatabaseReference, ref, onValue, off, get } from 'firebase/database'; // Import onValue and off from Firebase database
+import { DatabaseReference, ref, onValue, off, get } from 'firebase/database';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Question {
     question: string;
@@ -24,11 +27,16 @@ const Page = () => {
     const [username, setUserName] = useState('');
     const [currentScore, setCurrentScore] = useState(0);
     const [attemptscore, setAttemptScore] = useState(0);
-    const [showQuiz, setShowQuiz] = useState(false); // Initially hide quiz until published
+    const [showQuiz, setShowQuiz] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [quizTime, setQuizTime] = useState(1 * 60); // Quiz time in seconds (default 1 minute for testing)
-    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null); // Timer reference
-    const [submissionMessage, setSubmissionMessage] = useState<string>(''); // Message after submission
+    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+    const [submissionMessage, setSubmissionMessage] = useState<string>('');
+    const [quizStarted, setQuizStarted] = useState(false);
+    const [quizStopped, setQuizStopped] = useState(false);
+    const [onAndoff, setOnAndOff] = useState(false);
+    const [show , setShow] = useState(false);
+
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     useEffect(() => {
@@ -39,7 +47,7 @@ const Page = () => {
             } else {
                 setIsLoggedIn(false);
                 setEmail(null);
-                setIsLoading(false); // No need to load if user is not logged in
+                setIsLoading(false);
             }
         });
         return () => unsubscribe();
@@ -81,9 +89,10 @@ const Page = () => {
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-                    setShowQuiz(false);
+                    setSubmissionMessage('You have already submitted the quiz.');
+                    setShowQuiz(false); // Hide quiz immediately after submission
                 } else {
-                    setShowQuiz(true);
+                    setSubmissionMessage('');
                 }
                 setIsLoading(false);
             }
@@ -98,7 +107,15 @@ const Page = () => {
         const quizStatusRef = ref(database, 'quizStatus');
         const handleQuizStatusChange = (snapshot: { val: () => any; }) => {
             const status = snapshot.val();
-            setShowQuiz(status === true);
+            if (status === true) {
+                setQuizStarted(true);
+                setQuizStopped(false);
+            } else {
+                setQuizStarted(false);
+                setQuizStopped(true);
+            }
+            
+            setOnAndOff(status === true);
             setIsLoading(false);
         };
 
@@ -118,14 +135,12 @@ const Page = () => {
     };
 
     const startQuiz = () => {
-        // Start the quiz timer
         setTimer(setInterval(() => {
-            setQuizTime((prevTime) => prevTime - 1); // Countdown timer
+            setQuizTime((prevTime) => prevTime - 1);
         }, 1000));
     };
 
     const handleSubmit = async () => {
-        // Clear the timer when submitting
         if (timer) {
             clearInterval(timer);
             setTimer(null);
@@ -143,22 +158,30 @@ const Page = () => {
 
         if (email) {
             try {
-                // Check quiz status before storing score
-                const quizStatusRef = ref(database, 'quizStatus');
-                const quizStatusSnapshot = await get(quizStatusRef);
-                const quizStatus = quizStatusSnapshot.val();
-
-                if (!quizStatus) {
+                if (quizStopped) {
                     setSubmissionMessage('The quiz has been stopped by the admin. You cannot submit your score.');
-                } else {
-                    await setDoc(doc(firestore, 'UserScores', email), {
-                        email: email,
-                        name: username,
-                        score: updatedScore
-                    });
-                    console.log('Score stored in Firestore successfully.');
-                    setSubmissionMessage('Your quiz has been submitted successfully.');
-                    setShowQuiz(false); // Prevent user from retaking the quiz
+                } else if (quizStarted) {
+                    const docRef = doc(firestore, 'UserScores', email);
+                    const docSnap = await getDoc(docRef);
+
+                    if (docSnap.exists()) {
+                        setSubmissionMessage('You have already submitted the quiz.');
+                        setShowQuiz(false); // Hide quiz immediately after submission
+                    } else {
+                        await setDoc(doc(firestore, 'UserScores', email), {
+                            email: email,
+                            name: username,
+                            score: updatedScore
+                        });
+                         setSubmissionMessage('Your quiz has been submitted successfully.');
+                        setShowQuiz(false); // Hide quiz immediately after submission
+
+                        if (onAndoff) {
+                            toast.success("Thank you for your submission");
+                        } else {
+                            toast.error("Quiz is finished");
+                        }
+                    }
                 }
             } catch (error) {
                 console.error('Error storing score in Firestore:', error);
@@ -167,15 +190,14 @@ const Page = () => {
     };
 
     useEffect(() => {
-        // Check if quizTime is zero to stop quiz
-        if (quizTime <= 0) {
+        if (quizTime === 0) {
             setShowQuiz(false);
-            clearInterval(timer!); // Stop the timer
+            handleSubmit();
+            clearInterval(timer!);
         }
     }, [quizTime]);
 
     useEffect(() => {
-        // Ensure the quiz starts when shown
         if (showQuiz) {
             startQuiz();
         }
@@ -189,36 +211,19 @@ const Page = () => {
         );
     }
 
+ 
+
     return (
         <div>
-            {showQuiz && (
+            {(!onAndoff || !showQuiz) && (
+                <div className="flex items-center justify-center h-screen">
+                    <h1 className="text-3xl font-bold text-gray-800">
+                        {onAndoff ? "Thank you for your submission!" : "Quiz has not started yet."}
+                    </h1>
+                </div>
+            )}
+            {showQuiz && onAndoff && (
                 <>
-                    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                        <ModalContent>
-                            {(onClose) => (
-                                <>
-                                    <ModalHeader className="flex flex-col gap-1">
-                                        Rules for the Quiz
-                                    </ModalHeader>
-                                    <ModalBody>
-                                        <h1>
-                                            1. You can only attempt this quiz once.<br /><br />
-                                            2. After selecting all the answers, click submit.<br /><br />
-                                            3. 10 Points will be given for every correct answer.<br /><br />
-                                            4. This test is for your own understanding, so do not cheat.<br /><br />
-                                            5. All the best and keep working hard.
-                                        </h1>
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="danger" variant="light" onPress={onClose}>
-                                            Ok
-                                        </Button>
-                                    </ModalFooter>
-                                </>
-                            )}
-                        </ModalContent>
-                    </Modal>
-
                     <div className='text-3xl font-bold'>
                         <div className={Orbitronn.className}>
                             DSA MCQ test
@@ -270,13 +275,10 @@ const Page = () => {
                     </div>
                 </>
             )}
-            {!showQuiz && (
-                <div className="flex items-center justify-center h-screen">
-                    <h1 className="text-3xl font-bold text-gray-800">Quiz is not available yet. Please check back later.</h1>
-                </div>
-            )}
+            <ToastContainer />
         </div>
     );
+    
 };
 
 export default withAuth(Page);

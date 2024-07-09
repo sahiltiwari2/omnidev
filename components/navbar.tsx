@@ -78,7 +78,7 @@ export const Navbar = () => {
           {siteConfig.navItems.map((item: NavItem) => (
             <NavbarItem key={item.href}>
               {isLoggedIn ? (
-                isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz"  || item.label === "Score Board" ? (
+                isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz"  || item.label === "Score Board"  || item.label === "Quiz" || item.label === "Notes" ? (
                   <NextLink
                     className={clsx(
                       linkStyles({ color: "foreground" }),
