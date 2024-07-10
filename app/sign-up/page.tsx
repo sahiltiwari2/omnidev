@@ -90,8 +90,8 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className='flex p-5 shadow-lg bg-gray-50 justify-center'>
-        <div className='w-[450px] bg-gray-50 h-[600px]'>
+      <div className='flex p-5 shadow-lg bg-gray-50 dark:bg-black justify-center'>
+        <div className='w-[450px] bg-gray-50 h-[600px] dark:bg-black'>
           <div className='font-bold text-blue-500'>
             <div className={Orbitronn.className}>
               CIIE Omnidev

@@ -37,7 +37,7 @@ export const Navbar = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
-        setUserEmail(user.email);
+        setUserEmail(user.email ?? ''); // Set email or empty string
       } else {
         setIsLoggedIn(false);
         setUserEmail('');
@@ -66,6 +66,7 @@ export const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -77,19 +78,17 @@ export const Navbar = () => {
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item: NavItem) => (
             <NavbarItem key={item.href}>
-              {isLoggedIn ? (
-                isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz"  || item.label === "Score Board" ? (
-                  <NextLink
-                    className={clsx(
-                      linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary data-[active=true]:font-medium"
-                    )}
-                    color="foreground"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </NextLink>
-                ) : null
+              {item.label === "Home" || (isLoggedIn && (isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz" || item.label === "Score Board")) ? (
+                <NextLink
+                  className={clsx(
+                    linkStyles({ color: "foreground" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  )}
+                  color="foreground"
+                  href={item.href}
+                >
+                  {item.label}
+                </NextLink>
               ) : null}
             </NavbarItem>
           ))}

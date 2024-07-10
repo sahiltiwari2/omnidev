@@ -1,53 +1,76 @@
-"use client"
+import React from 'react'
+import VisanaryTech from "@/public/webdev.svg"
+import CloudServer from '@/public/appdev.svg'
+import Industry from '@/public/cloud.svg'
+import Curve from '@/public/datastuctures.svg'
+import Image from 'next/image'
+import { Button } from '@nextui-org/button'
+import Link from 'next/link'
+const cards = () => {
+    return (
+        <div>
+            <div className='text-3xl font-bold text-green-600'> Class Recordings </div>
+            <div className='flex flex-col justify-center mt-10 md:md-0 items-center md:flex-row gap-14 animate-slide-in-from-bottom'>
+                <div className='w-[270px] h-[380px] border-2 dark:bg-gray-900 border-blue-400 pt-5 rounded-lg shadow-md pl-5 hover:shadow-blue-300 transition duration-250 hover:scale-110'>
+                    <Image src={VisanaryTech} alt='tech' height={200} width={200} />
+                    <div className='font-bold dark:text-blue-400 mt-10 ml-10 text-xl'>
+                        Web Classes
+                    </div>
+                    <div className='text-left pt-3'>
+                        Recording for web classes
+                    </div>
+                    <div className='flex justify-end mr-4 mt-5'>
+                    <Button color="primary" className='w-[100px]' as={Link} href='/webvideo'>
+                        Watch
+                    </Button>
+                    </div>
+                </div>
+                <div className='w-[270px] h-[380px] border-2 dark:bg-gray-900 border-yellow-400 pt-7 rounded-lg shadow-md pl-5 hover:shadow-yellow-300 transition duration-250 hover:scale-110'>
+                    <Image src={CloudServer} alt='tech' height={200} width={200} className='object-contain h-[150px]' />
+                    <div className='font-bold dark:text-yellow-400 mt-10 ml-10 text-xl'>
+                        App Classes
+                    </div>
+                    <div className='text-left pt-3'>
+                        Recording for app classes
+                    </div>
+                    <div className='flex justify-end mr-4 mt-5'>
+                    <Button color="primary" className='w-[100px]' as={Link} href='/appvideo'>
+                        Watch
+                    </Button>
+                    </div>
+                </div>
+                <div className='w-[270px] h-[380px] border-2  dark:bg-gray-900 border-purple-400 pt-5 rounded-lg shadow-md pl-5 hover:shadow-purple-300 transition duration-250 hover:scale-110'>
+                    <Image src={Industry} alt='tech' height={200} width={200} className='object-contain h-[170px]' />
+                    <div className='font-bold dark:text-purple-400 mt-10 ml-10 text-xl'>
+                        Cloud Classes
+                    </div>
+                    <div className='text-left pt-3'>
+                        Recording for cloud classes
+                    </div>
+                    <div className='flex justify-end mr-4 mt-5'>
+                    <Button color="primary" className='w-[100px]' as={Link} href='/cloudvideo'>
+                        Watch
+                    </Button>
+                    </div>
+                </div>
+                <div className='w-[270px] h-[380px] border-2 dark:bg-gray-900 border-orange-400 pt-5 rounded-lg shadow-md pl-5 hover:shadow-orange-300 transition duration-250 hover:scale-110'>
+                    <Image src={Curve} alt='tech' height={200} width={200} className='object-contain h-[150px]' />
+                    <div className='font-bold dark:text-orange-400 mt-10 ml-10 text-xl'>
+                        DSA Classes
+                    </div>
+                    <div className='text-left pt-3'>
+                        Recording for dsa classes
+                    </div>
+                    <div className='flex justify-end mr-4 mt-5'>
+                    <Button color="primary" className='w-[100px]' as={Link} href='/dsavideo'>
+                        Watch
+                    </Button>
+                    </div>
+                </div>
 
-import { useState, useEffect } from "react";
-import withAuth from "@/components/withAuth";
+            </div>
+        </div>
+    )
+}
 
-
-type Video = {
-  url: string;
-  title: string;
-  date: string;
-};
-
-const handleNavigation = (page: string) => {
-  window.location.href = `/${page}`;
-};
-
-const Page = () => {
-  
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-8 text-center">Class Recording</h1>
-      <div className="flex justify-center space-x-4">
-        <button
-          onClick={() => handleNavigation("dsavideo")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Class Recording for DSA
-        </button>
-        <button
-          onClick={() => handleNavigation("cloudvideo")}
-          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
-        >
-          Class Recording for Cloud
-        </button>
-        <button
-          onClick={() => handleNavigation("appvideo")}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded"
-        >
-          Class Recording for App
-        </button>
-        <button
-          onClick={() => handleNavigation("webvideo")}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-        >
-          Class Recording for Web
-        </button>
-      </div>
-    
-    </div>
-  );
-};
-
-export default withAuth(Page);
+export default cards
