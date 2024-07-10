@@ -84,8 +84,7 @@ const page = () => {
             }
 
             axios.post('https://sheet.best/api/sheets/123f96ac-1fed-4cf7-aded-92ddd51ebf39', data).then((response) => {
-                console.log(response);
-                setName('');
+                 setName('');
                 setNumber('');
                 setEmail('');
                 setCollage('');

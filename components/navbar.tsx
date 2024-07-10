@@ -78,6 +78,7 @@ export const Navbar = () => {
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item: NavItem) => (
             <NavbarItem key={item.href}>
+<<<<<<< HEAD
               {item.label === "Home" || (isLoggedIn && (isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz" || item.label === "Score Board")) ? (
                 <NextLink
                   className={clsx(
@@ -89,6 +90,21 @@ export const Navbar = () => {
                 >
                   {item.label}
                 </NextLink>
+=======
+              {isLoggedIn ? (
+                isAdmin() || item.label === "Class-Recordings" || item.label === "Quiz"  || item.label === "Score Board"  || item.label === "Quiz" || item.label === "Notes" ? (
+                  <NextLink
+                    className={clsx(
+                      linkStyles({ color: "foreground" }),
+                      "data-[active=true]:text-primary data-[active=true]:font-medium"
+                    )}
+                    color="foreground"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </NextLink>
+                ) : null
+>>>>>>> 6619b4cfbcfc98e758d6a68576b03453873dd063
               ) : null}
             </NavbarItem>
           ))}

@@ -48,6 +48,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^3.2.0",
+    "firebase": "^10.12.3",
     "framer-motion": "~11.1.1",
     "fs": "^0.0.1-security",
     "intl-messageformat": "^10.5.0",
@@ -64,10 +65,14 @@
     "tailwind-variants": "0.1.20",
     "tailwindcss": "3.4.3",
     "typescript": "5.0.4",
+    "uuid": "^10.0.0",
     "xlsx": "^0.18.5"
   },
   "description": "This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).",
   "main": "firebaseConfig.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/uuid": "^10.0.0"
+  }
 }
