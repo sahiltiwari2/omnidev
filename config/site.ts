@@ -27,14 +27,14 @@ export const siteConfig = {
     //   label: "Score Board",
     //   href: "/userScore"
     // },
-    {
-      label: "Notes",
-      href: "/notes"
-    },
-    {
-      label: "Add Notes",
-      href: "/addNotes"
-    },
+    // {
+    //   label: "Notes",
+    //   href: "/notes"
+    // },
+    // {
+    //   label: "Add Notes",
+    //   href: "/addNotes"
+    // },
     {
       label: " ",
       href: "/cloudvideo"
