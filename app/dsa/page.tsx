@@ -1,9 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
-import Web from '@/public/webdev.svg'
-import Image from 'next/image'
 import WebCard from "@/components/dsadetail/dsaCard"
-import { Poppinss } from '@/config/fonts'
 import { Button } from '@nextui-org/button'
 import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react'
 
