@@ -7,14 +7,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDCGCrJXsugXaeuhGSpjYJtP5E9rQQqdK4",
-  authDomain: "omniedv.firebaseapp.com",
-  databaseURL: "https://omniedv-default-rtdb.firebaseio.com",
-  projectId: "omniedv",
-  storageBucket: "omniedv.appspot.com",
-  messagingSenderId: "1044536937838",
-  appId: "1:1044536937838:web:f1d5290ddee22b6e03c57f",
-  measurementId: "G-MF40KY8PTF"
+  apiKey: "AIzaSyD7JbfTHm2qFvnpCe8PDHE42vcrujYbysU",
+  authDomain: "ciie-summer-training-program.firebaseapp.com",
+  projectId: "ciie-summer-training-program",
+  storageBucket: "ciie-summer-training-program.appspot.com",
+  messagingSenderId: "230709441202",
+  appId: "1:230709441202:web:84017542175ed5ffbe4fab"
 };
 
 // Initialize Firebase
