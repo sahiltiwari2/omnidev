@@ -11,6 +11,8 @@ import Image from 'next/image';
 import Collab from '@/public/login.svg';
 import { EyeFilledIcon } from "@/public/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/public/EyeSlashFilledIcon";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,11 +42,14 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-       setEmail('');
+      setEmail('');
       setPassword('');
       setError(null);
-      router.push('/'); // Redirect to home page or any other page
+      toast.success("Logged in successfully");
+      router.push('/');
     } catch (err) {
+      // const errorMessage = error || 'An error occurred during login';
+      toast.error(error);
       setError(error);
     }
   };
@@ -132,6 +137,7 @@ const Login = () => {
       <div className="w-[500px] border-2 bg-green-500 rounded-xl pl-10 pt-24">
         <Image src={Collab} alt="Collab" height={600} width={500} className="transition animate-appearance-in duration-300 delay-200" />
       </div>
+      <ToastContainer />
     </div>
   );
 };

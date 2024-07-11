@@ -29,7 +29,7 @@ const AreasPage = () => {
                 </Link>
             </div>
             <div className="w-1/4 m-4">
-                <Link href="/app">
+                <Link href="/appNotes">
                     <div className="cursor-pointer block bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded">
                         App Area
                     </div>
