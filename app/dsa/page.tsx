@@ -1,6 +1,6 @@
   "use client"
   import React, { useEffect } from 'react'
-  import WebCard from "@/components/dsadetail/dsaCard"
+  import WebCard from "@/components/webDetail/webCard"  
   import { Button } from '@nextui-org/button'
   import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react'
 
