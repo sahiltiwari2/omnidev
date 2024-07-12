@@ -35,7 +35,7 @@ const Page = () => {
     const [quizStarted, setQuizStarted] = useState(false);
     const [quizStopped, setQuizStopped] = useState(false);
     const [onAndoff, setOnAndOff] = useState(false);
-    const [show , setShow] = useState(false);
+    const [show, setShow] = useState(false);
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -211,8 +211,6 @@ const Page = () => {
         );
     }
 
- 
-
     return (
         <div>
             {(!onAndoff || !showQuiz) && (
@@ -233,52 +231,42 @@ const Page = () => {
                         </div>
                     </div>
                     <div className='flex justify-center'>
-                        <div className='mt-16 ml-5'>
-                            {data.map((item, questionIndex) => (
-                                <div key={questionIndex} style={{ marginBottom: '20px' }} className='border-3 rounded-lg p-5'>
-                                    <div className='font-bold text-2xl ml-16'>
-                                        {item.question}
-                                    </div>
-                                    <div className='mt-5'>
-                                        <ul style={{ listStyleType: 'none', padding: 0 }}>
-                                            {item.options.map((option, optionIndex) => (
-                                                <li key={optionIndex} style={{ marginBottom: '5px' }}>
-                                                    <div className='ml-28'>
-                                                        <Checkbox
-                                                            isSelected={selectedOptions[questionIndex] === optionIndex}
-                                                            onChange={() => handleCheckboxChange(questionIndex, optionIndex)}
-                                                        >
-                                                            {option}
-                                                        </Checkbox>
-                                                    </div>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            ))}
-                            <div className='flex justify-center mt-5'>
-                                <Button onPress={handleSubmit} variant='ghost' color='success' className='w-32'>Submit</Button>
-                            </div>
-                            <div className='flex justify-center mt-5'>
-                                <p>Time Left: {Math.floor(quizTime / 60)}:{quizTime % 60 < 10 ? `0${quizTime % 60}` : quizTime % 60}</p>
-                            </div>
-                            <div className='flex justify-center mt-5'>
-                                <p>Score: {attemptscore}</p>
-                            </div>
-                            {submissionMessage && (
-                                <div className='flex justify-center mt-5'>
-                                    <p>{submissionMessage}</p>
-                                </div>
-                            )}
-                        </div>
+                        <h1 className='text-3xl font-bold'>DSA Quiz</h1>
                     </div>
+                    <div className='text-xl font-normal text-center text-red-600'>
+                        You have {Math.floor(quizTime / 60)}:{quizTime % 60 < 10 ? `0${quizTime % 60}` : quizTime % 60} minutes remaining.
+                    </div>
+                    {data.map((question: Question, questionIndex: number) => (
+                        <div key={questionIndex} className='mb-6'>
+                            <h2 className='text-xl font-semibold mb-2'>{question.question}</h2>
+                            <div className='space-y-2'>
+                                {question.options.map((option, optionIndex) => (
+                                    <label key={optionIndex} className='flex items-center space-x-2'>
+                                        <Checkbox
+                                            isSelected={selectedOptions[questionIndex] === optionIndex}
+                                            onChange={() => handleCheckboxChange(questionIndex, optionIndex)}
+                                            aria-label={option}
+                                        />
+                                        <span>{option}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                    <Button className='mt-4' onClick={handleSubmit} color='primary'>
+                        Submit
+                    </Button>
+                    {submissionMessage && (
+                        <div className="flex items-center justify-center h-screen">
+                            <h1 className="text-3xl font-bold text-gray-800">
+                                {submissionMessage}
+                            </h1>
+                        </div>
+                    )}
                 </>
             )}
-            <ToastContainer />
         </div>
     );
-    
 };
 
 export default withAuth(Page);
