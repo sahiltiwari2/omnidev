@@ -8,9 +8,7 @@ import { Input, Button } from '@nextui-org/react';
 import withAuth from '@/components/withAuth';
 import { database } from '@/firebaseConfig';
 import { ref, get, set } from 'firebase/database';
-import Page from '../dsaQuiz/page';
 
-// Define the type for a single question
 interface Question {
   question: string;
   options: string[];
